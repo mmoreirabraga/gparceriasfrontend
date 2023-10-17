@@ -123,12 +123,12 @@ const getListMatchesEntrePrivadoPrefeitura = async () => {
           insertMatches(match.nomePrivado, match.cnpjPrivado, match.tipoEmpPriv, match.descAreaPriv, match.nomePrefeitura, match.cnpjPrefeitura, match.tipoEmpPref, match.descAreaPref);
         })
       }
-            
+
     })
     .catch((error) => {
       console.log('Error: ' + error)
     });
- 
+
 }
 
 /*
@@ -227,7 +227,7 @@ const submitAreaDaEmpresa = async (formData) => {
 const insertButton = (parent) => {
   // editar
   let spanEditar = document.createElement("span");
-  // estilo editar 
+  // estilo editar
   spanEditar.style.cursor = 'pointer';
   spanEditar.style.backgroundColor = 'lightblue';
   spanEditar.style.padding = '10px';
@@ -381,9 +381,9 @@ const removeAreaElement = () => {
         alert("Removido!");
         clearAreasDaEmpresa(idEmpresa);
       }
-      
+
     }
-    
+
   }
 }
 
@@ -460,14 +460,15 @@ const carregarAreaIntencoes = async (nome) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      let select = document.getElementById("areaIntencaoId");
+      select.innerHTML = "";
       data[0].areasIntencoes.forEach((area) => {
-        let select = document.getElementById("areaIntencaoId");
         let option = document.createElement("option");
         option.id = area.id;
         option.value = area.id;
         option.text = area.descricao;
         select.add(option);
-      })      
+      })
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -502,12 +503,12 @@ const carregarAreasIntencoesDaEmpresa = async (id) => {
       }else{
         alert("mensagem: "+data[0].mensagem+ '. Status: '+ data[1]);
       }
-            
+
     })
     .catch((error) => {
       console.log('Error: ' + error)
     });
- 
+
 }
 
 
@@ -678,7 +679,7 @@ const removerErrosNosCampos = () => {
 
 /*
   ---------------------------------------------------------------------------------------
-  Função colocar feedback invalidação de campo do lado do servidor. 
+  Função colocar feedback invalidação de campo do lado do servidor.
   ---------------------------------------------------------------------------------------
 */
 const invalidFeedback = (errorMensagem) => {
@@ -696,6 +697,6 @@ const invalidFeedback = (errorMensagem) => {
 }
 
 $('#areaIntencao').on('hidden.bs.modal', function (event) {
-  
+
   clearMatchesEmpresas();
 })
