@@ -642,7 +642,7 @@ const insertFormulario = (id, nome, cnpj, email, responsavel, tipoEmpresa) => {
 */
 const cancelEmpresa = () => {
   let inputId = document.getElementById("id");
-  insertFormulario('', '', '', '', '', '');
+  //insertFormulario('', '', '', '', '', '');
   let iCnpj = document.getElementById("cnpj");
   let iEmail = document.getElementById("email");
   iCnpj.readOnly = false;
@@ -660,6 +660,7 @@ const cancelEmpresa = () => {
   if (inputId.value !== '') {
     clearEmpresas();
   }
+  insertFormulario('', '', '', '', '', '');
 }
 
 const removerErrosNosCampos = () => {
